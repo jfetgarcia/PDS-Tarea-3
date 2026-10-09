@@ -2,6 +2,11 @@
 Files in this repository
 | File | Tooltip |
 | --- | --- |
+| chirp_signal.py | Script which analyzes signal after passing through channel. Determines object distance, SONAR resolution and minimum chirp needed to detect object|
+| environment.yml | file to create conda enviroment |
+| README.md | This file with details repository documentation |
+| sonar_channel.py | Simulate wave passing through channel. Adds noise, delay and damping |
+
 
 ## Dependencies
 For a reproducible enviroment Conda Miniforge was used. For Linux Ubuntu, the following command was used:
@@ -18,12 +23,35 @@ conda activate pds-tarea3
 ```
 2. Running scripts example
 ```
-python3 <>.py
+python3 chirp_signal.py
 ```
 3. Exit enviroment
 ```
 conda deactivate
 ```
+### Script: sonar_channel.py
+This script runs a SONAR chirp signal through a simulated water channel and estimates distance to an object based on a returned signal.
+
+Run the script with
+```
+python3 chirp_signal.py
+```
+Expected output
+```
+Atraso estimado: 19200 muestras
+Atraso temporal: 200.0 ms
+Distancia estimada: 150.0 m
+Resolucion espacial: 0.075 m
+SNR supera 10 dB a partir de 2.0208333333333273 ms
+```
+Also 3 graphs are created. 
+* The sent/recieved signal correlation. 
+* The example chirp signal. 
+* The SNR vs. chirp duration
+
+
+### Script: sonar_channel.py
+**This file is not meant to work as an independent script. Do not run on its own**
 
 ## Troubleshooting
 When installing the conda enviroment. The base enviroment might not activate. This can
