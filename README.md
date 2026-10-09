@@ -2,13 +2,16 @@
 Files in this repository
 | File | Tooltip |
 | --- | --- |
+| analyze_effects.py | Reproduces effects by impulse response and convolving |
 | analyze_song.py | Reads senal_misteriosa.wav and attemps to filter with autocorrelation method |
 | cancion_filtrada.wav | Output filtered song from analyze_song.py |
 | chirp_signal.py | Script which analyzes signal after passing through channel. Determines object distance, SONAR resolution and minimum chirp needed to detect object|
+| efectos_fir.py | Reverb and eco effects for sound files |
 | environment.yml | file to create conda enviroment |
 | README.md | This file with details repository documentation |
 | senal_misteriosa.wav | Input song for analyze_song.py |
 | sonar_channel.py | Simulate wave passing through channel. Adds noise, delay and damping |
+| Tarea-3_Señales-y-Sistemas-en-Tiempo-Discreto-2.pdf| Report pdf on results for work |
 
 
 ## Dependencies
@@ -32,7 +35,7 @@ python3 chirp_signal.py
 ```
 conda deactivate
 ```
-### Script: sonar_channel.py
+### Script: chirp_signal.py
 This script runs a SONAR chirp signal through a simulated water channel and estimates distance to an object based on a returned signal.
 
 Run the script with
@@ -61,7 +64,7 @@ This script attempts to filter the senal_misteriosa.wav and writes the result to
 
 Run the script with
 ```
-python3 sonar_channel.py
+python3 analyze_song.py
 ```
 
 Expected ouptut is the wav file and the following terminal output:
@@ -69,6 +72,24 @@ Expected ouptut is the wav file and the following terminal output:
 Período estimado: 490 muestras
 Tiempo del período: 0.0306 s
 ```
+### Script: analyze_effects.py
+This script recreates reverb and eco effects from efectos_fir.py. This is done
+by generating the impulse response and applying convolving with input signals
+
+Run the script with
+```
+python3 analyze_effects.py
+```
+Expected output
+```
+SNR cascada: 302.85 dB
+Error máximo cascada: 5.551115123126e-16
+SNR sistema equivalente: 303.73 dB
+Error máximo sistema equivalente: 6.106226635438e-16
+```
+### Script: efectos_fir.py
+**This file is not meant to work as an independent script. Do not run on its own**
+
 ## Troubleshooting
 When installing the conda enviroment. The base enviroment might not activate. This can
 result in the `conda` commands not being recognized. This can be fixed by running the
