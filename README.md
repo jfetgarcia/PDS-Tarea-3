@@ -2,9 +2,12 @@
 Files in this repository
 | File | Tooltip |
 | --- | --- |
+| analyze_song.py | Reads senal_misteriosa.wav and attemps to filter with autocorrelation method |
+| cancion_filtrada.wav | Output filtered song from analyze_song.py |
 | chirp_signal.py | Script which analyzes signal after passing through channel. Determines object distance, SONAR resolution and minimum chirp needed to detect object|
 | environment.yml | file to create conda enviroment |
 | README.md | This file with details repository documentation |
+| senal_misteriosa.wav | Input song for analyze_song.py |
 | sonar_channel.py | Simulate wave passing through channel. Adds noise, delay and damping |
 
 
@@ -53,6 +56,19 @@ Also 3 graphs are created.
 ### Script: sonar_channel.py
 **This file is not meant to work as an independent script. Do not run on its own**
 
+### Script: analyze_song.py
+This script attempts to filter the senal_misteriosa.wav and writes the result to cancion_filtrada.wav
+
+Run the script with
+```
+python3 sonar_channel.py
+```
+
+Expected ouptut is the wav file and the following terminal output:
+```
+Período estimado: 490 muestras
+Tiempo del período: 0.0306 s
+```
 ## Troubleshooting
 When installing the conda enviroment. The base enviroment might not activate. This can
 result in the `conda` commands not being recognized. This can be fixed by running the
